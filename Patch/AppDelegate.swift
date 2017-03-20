@@ -11,17 +11,19 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBOutlet weak var window: NSWindow!
-
+    var mainWindowController: MainWindowController?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if (mainWindowController == nil) {
+            mainWindowController = MainWindowController()
+        }
+        
+        mainWindowController?.window?.makeKeyAndOrderFront(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
 
 }
 

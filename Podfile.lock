@@ -1,0 +1,18 @@
+PODS:
+  - BlueSocket (0.12.16)
+  - ReactiveSwift (1.1.0):
+    - Result (~> 3.1)
+  - Result (3.2.1)
+
+DEPENDENCIES:
+  - BlueSocket (~> 0.12)
+  - ReactiveSwift (~> 1.1)
+
+SPEC CHECKSUMS:
+  BlueSocket: 13bf1daf94a316e9efe93aa125cc33b8c3dd6c35
+  ReactiveSwift: 2f4e4a02e5a5c87ea63f5fe667163ce2a67cbb57
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+
+PODFILE CHECKSUM: 4d8b3284aaa7b19ab7be6816be8fe86f509d4d95
+
+COCOAPODS: 1.2.0

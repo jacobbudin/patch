@@ -101,8 +101,14 @@ enum GopherResponseError {
 class GopherResponse {
     
     let body: String
-    var parts: [String]?
+    var parts: [GopherResponsePart] = []
     var error: GopherResponseError?
+    
+    var html: String {
+        return "<html><body>" + parts.map({
+            $0.html
+        }).joined() + "</body></html>"
+    }
     
     let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
     let terminatingSequence = [".", ""]
@@ -118,12 +124,36 @@ class GopherResponse {
     }
     
     private func parse() {
-        parts = body.components(separatedBy: lineSeparator)
+        let allParts = body.components(separatedBy: lineSeparator)
         
-        let completeResponse = parts?.suffix(2).elementsEqual(terminatingSequence)
+        let completeResponse = allParts.suffix(2).elementsEqual(terminatingSequence)
         if completeResponse == false {
             self.error = .Incomplete
+            return
+        }
+        
+        parts = allParts.dropLast(2).map {
+            return GopherResponsePart(string: $0)
         }
     }
     
+}
+
+class GopherResponsePart {
+    
+    let type: Character
+    let content: String
+    let path: URL?
+    
+    var html: String {
+        return "<p>" + content + "</p>"
+    }
+    
+    init(string: String) {
+        let parts = string.components(separatedBy: "\t")
+
+        self.type = string[string.startIndex]
+        self.content = parts[0].substring(from: string.index(string.startIndex, offsetBy: 1))
+        self.path = nil
+    }
 }

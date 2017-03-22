@@ -35,7 +35,7 @@ class MainWindowController: NSWindowController {
                 guard let response = page.response else {
                     return
                 }
-                let html = "<html><body><pre>" + response.body + "</pre></body></html>"
+                let html = response.html
                 let url = URL(string: page.request!.url.path)
                 self.contentWebView.mainFrame.loadHTMLString(html, baseURL: url)
             }

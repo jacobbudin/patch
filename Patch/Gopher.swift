@@ -105,7 +105,11 @@ class GopherResponse {
     var error: GopherResponseError?
     
     var html: String {
-        return "<html><body>" + parts.map({
+        let cssPath = Bundle.main.path(forResource: "GopherPageStyle", ofType: "css")
+        guard let resolvedCssPath = cssPath else {
+            fatalError("Gopher page stylesheet could not be located")
+        }
+        return "<html><head><link href=\"file://\(resolvedCssPath)\" rel=\"stylesheet\"></head><body>" + parts.map({
             $0.html
         }).joined() + "</body></html>"
     }

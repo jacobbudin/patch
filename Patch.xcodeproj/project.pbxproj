@@ -15,6 +15,7 @@
 		A093BE8D1E7A15B400884283 /* PatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE8C1E7A15B400884283 /* PatchUITests.swift */; };
 		A093BE9B1E7A15D400884283 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE9A1E7A15D400884283 /* MainWindowController.swift */; };
 		A093BE9D1E7A185200884283 /* Gopher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE9C1E7A185200884283 /* Gopher.swift */; };
+		A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */; };
 		A0EFA2B61E7A269A005BED6B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EFA2B51E7A269A005BED6B /* MainWindow.xib */; };
 		F814D148AFA92AC171CE6EEA /* Pods_PatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9AF05B37DCF4DAADCE3D1F /* Pods_PatchTests.framework */; };
 		F88A74BE4F2E6D21EB8E0ACF /* Pods_PatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D5876C85B35E56955E3D93 /* Pods_PatchUITests.framework */; };
@@ -56,6 +57,7 @@
 		A093BE8E1E7A15B400884283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A093BE9A1E7A15D400884283 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		A093BE9C1E7A185200884283 /* Gopher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gopher.swift; sourceTree = "<group>"; };
+		A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GopherPageStyle.css; sourceTree = "<group>"; };
 		A0EFA2B51E7A269A005BED6B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		BE98003AB72354086962BBD1 /* Pods-Patch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patch/Pods-Patch.release.xcconfig"; sourceTree = "<group>"; };
 		CDF9F3265897C3E3A4F041DB /* Pods-Patch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Patch/Pods-Patch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				A093BE711E7A15B400884283 /* AppDelegate.swift */,
 				A093BE9A1E7A15D400884283 /* MainWindowController.swift */,
 				A093BE9C1E7A185200884283 /* Gopher.swift */,
+				A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */,
 				A093BE731E7A15B400884283 /* Assets.xcassets */,
 				A093BE751E7A15B400884283 /* MainMenu.xib */,
 				A0EFA2B51E7A269A005BED6B /* MainWindow.xib */,
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A093BE741E7A15B400884283 /* Assets.xcassets in Resources */,
+				A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle.css in Resources */,
 				A093BE771E7A15B400884283 /* MainMenu.xib in Resources */,
 				A0EFA2B61E7A269A005BED6B /* MainWindow.xib in Resources */,
 			);

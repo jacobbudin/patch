@@ -1,5 +1,6 @@
 body {
     font-family: -apple-system;
-    margin: 1em auto;
+    margin: 0 auto;
+    padding: 1em;
     max-width: 40em;
 }

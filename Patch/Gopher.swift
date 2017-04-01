@@ -66,8 +66,13 @@ class GopherRequest {
             var readData = Data(capacity: 1024000)
             
             do {
-                // Write the welcome string...
-                let requestData = Data(base64Encoded: "DQo=", options: NSData.Base64DecodingOptions())
+                var requestData = Data(base64Encoded: "DQo=", options: NSData.Base64DecodingOptions())
+                
+                if self.url.path.isEmpty == false {
+                    let crlf = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
+                    requestData = String(self.url.path.characters.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
+                }
+                
                 try socket.write(from: requestData!)
                 
                 repeat {

@@ -21,9 +21,13 @@ class MainWindowController: NSWindowController {
     }
     
     override func windowDidLoad() {
-        let urlStr = "gopher://gopher.floodgap.com"
-        let url = URL(string: "gopher://gopher.floodgap.com")
-        urlTextField.stringValue = urlStr
+        let url = "gopher://gopher.floodgap.com"
+        urlTextField.stringValue = url
+        submit(sender: nil)
+    }
+    
+    @IBAction func submit(sender: AnyObject?) {
+        let url = URL(string: urlTextField.stringValue)
         
         guard url != nil else {
             return

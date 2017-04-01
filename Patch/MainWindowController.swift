@@ -11,7 +11,7 @@ import Foundation
 import WebKit
 import ReactiveSwift
 
-class MainWindowController: NSWindowController {
+class MainWindowController: NSWindowController, WebPolicyDelegate {
     
     @IBOutlet weak var urlTextField: NSTextField!
     @IBOutlet weak var contentWebView: WebView!
@@ -26,6 +26,19 @@ class MainWindowController: NSWindowController {
         submit(sender: nil)
     }
     
+    func webView(_ webView: WebView!, decidePolicyForNavigationAction actionInformation: [AnyHashable : Any]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
+        
+        let navTypeObject = (actionInformation[WebActionNavigationTypeKey] as? Int) ?? 0
+        let navTypeCode: WebNavigationType = WebNavigationType(rawValue: navTypeObject) ?? .other
+        
+        if navTypeCode != .other {
+            listener.ignore()
+            return
+        }
+        
+        listener.use()
+    }
+
     @IBAction func submit(sender: AnyObject?) {
         let url = URL(string: urlTextField.stringValue)
         

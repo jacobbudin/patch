@@ -30,6 +30,9 @@
                         <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
                             <nil key="identifier"/>
                         </webPreferences>
+                        <connections>
+                            <outlet property="policyDelegate" destination="-2" id="wfn-wN-Uhy"/>
+                        </connections>
                     </webView>
                 </subviews>
                 <constraints>

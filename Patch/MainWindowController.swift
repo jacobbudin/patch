@@ -16,23 +16,37 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     @IBOutlet weak var urlTextField: NSTextField!
     @IBOutlet weak var contentWebView: WebView!
     
+    let home = URL(string: "gopher://gopher.floodgap.com")!
+    
     override var windowNibName : String! {
         return "MainWindow"
     }
     
     override func windowDidLoad() {
-        let url = "gopher://gopher.floodgap.com"
-        urlTextField.stringValue = url
+        go(home)
+    }
+    
+    func go(_ url: URL) {
+        print("Going to \(url)...")
+        urlTextField.stringValue = url.absoluteString
         submit(sender: nil)
     }
     
     func webView(_ webView: WebView!, decidePolicyForNavigationAction actionInformation: [AnyHashable : Any]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
         
+        let navUrl = (actionInformation[WebActionOriginalURLKey] as? URL) ?? nil
         let navTypeObject = (actionInformation[WebActionNavigationTypeKey] as? Int) ?? 0
         let navTypeCode: WebNavigationType = WebNavigationType(rawValue: navTypeObject) ?? .other
         
         if navTypeCode != .other {
+            print("Hijacked page load")
             listener.ignore()
+            
+            guard let url = navUrl else {
+                return
+            }
+            
+            go(url)
             return
         }
         

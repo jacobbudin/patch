@@ -66,7 +66,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
                 guard let response = page.response else {
                     return
                 }
-                let html = response.html
+                let html = page.html
                 let url = URL(string: page.request!.url.path)
                 self.contentWebView.mainFrame.loadHTMLString(html, baseURL: url)
             }

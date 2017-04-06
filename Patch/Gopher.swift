@@ -19,6 +19,32 @@ class GopherPage {
     var response: GopherResponse?
     var status: MutableProperty<GopherStatus> = MutableProperty(.Queued)
     
+    var html: String {
+        
+        let cssPath = Bundle.main.path(forResource: "GopherPageStyle", ofType: "css")
+        guard let resolvedCssPath = cssPath else {
+            fatalError("Gopher page stylesheet could not be located")
+        }
+        
+        var contentHtml: String
+        
+        if (self.response?.isDirectory)! {
+            print("Showing directory...")
+            contentHtml = parseDirectory().map({
+                $0.html
+            }).joined()
+        }
+        else {
+            print("Showing file...")
+            contentHtml = parseRaw()
+        }
+        
+        return "<html><head><link href=\"file://\(resolvedCssPath)\" rel=\"stylesheet\"></head><body>" + contentHtml + "</body></html>"
+    }
+    
+    let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
+    let terminatingSequence = [".", ""]
+    
     init(url: URL) {
         self.request = GopherRequest(url: url)
     }
@@ -37,11 +63,39 @@ class GopherPage {
             self.status.value = .Parsed
         }
     }
+    
+    private func parseRaw() -> String {
+        guard let body = self.response?.body else {
+            return ""
+        }
+        
+        let html = body.components(separatedBy: "\n\n").map({
+            "<p>" + $0 + "</p>"
+        }).joined()
+        
+        return html
+    }
+    
+    private func parseDirectory() -> [GopherResponsePart] {
+        guard let parts = self.response?.body.components(separatedBy: lineSeparator) else {
+            return []
+        }
+        
+        let completeResponse = parts.suffix(2).elementsEqual(terminatingSequence)
+        if completeResponse == false {
+            return []
+        }
+        
+        return parts.dropLast(2).map {
+            return GopherResponsePart(string: $0)
+        }
+    }
 }
 
 class GopherRequest {
     let url: URL
     let socket: Socket
+    
     
     init?(url: URL) {
         self.url = url
@@ -69,6 +123,7 @@ class GopherRequest {
                 var requestData = Data(base64Encoded: "DQo=", options: NSData.Base64DecodingOptions())
                 
                 if self.url.path.isEmpty == false {
+                    
                     let crlf = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
                     requestData = String(self.url.path.characters.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
                 }
@@ -106,21 +161,25 @@ enum GopherResponseError {
 class GopherResponse {
     
     let body: String
-    var parts: [GopherResponsePart] = []
     var error: GopherResponseError?
-    
-    var html: String {
-        let cssPath = Bundle.main.path(forResource: "GopherPageStyle", ofType: "css")
-        guard let resolvedCssPath = cssPath else {
-            fatalError("Gopher page stylesheet could not be located")
-        }
-        return "<html><head><link href=\"file://\(resolvedCssPath)\" rel=\"stylesheet\"></head><body>" + parts.map({
-            $0.html
-        }).joined() + "</body></html>"
-    }
-    
     let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
-    let terminatingSequence = [".", ""]
+    
+    var isDirectory: Bool {
+        if self.body.contains("\n\n") {
+            return false
+        }
+        
+        let parts = self.body.components(separatedBy: lineSeparator)
+        
+        for part in parts.dropLast() {
+            // if there's an empty line, this cannot be a directory listing
+            if part.isEmpty {
+                return false
+            }
+        }
+        
+        return true
+    }
     
     init?(data: Data) {
         guard let body = String(data: data, encoding: .utf8) else {
@@ -129,21 +188,6 @@ class GopherResponse {
         }
         
         self.body = body
-        self.parse()
-    }
-    
-    private func parse() {
-        let allParts = body.components(separatedBy: lineSeparator)
-        
-        let completeResponse = allParts.suffix(2).elementsEqual(terminatingSequence)
-        if completeResponse == false {
-            self.error = .Incomplete
-            return
-        }
-        
-        parts = allParts.dropLast(2).map {
-            return GopherResponsePart(string: $0)
-        }
     }
     
 }

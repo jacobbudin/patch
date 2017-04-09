@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		20DAC8926DEC11E0A9C5F9C1 /* Pods_Patch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974BC531AAC39DB943DA3EE6 /* Pods_Patch.framework */; };
+		A02176A71E99B68900180ED6 /* GopherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176A61E99B68900180ED6 /* GopherPage.swift */; };
+		A02176A91E99B6AB00180ED6 /* GopherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176A81E99B6AB00180ED6 /* GopherRequest.swift */; };
+		A02176AB1E99B6DA00180ED6 /* GopherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */; };
+		A02176AD1E99B6EB00180ED6 /* GopherResponsePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176AC1E99B6EB00180ED6 /* GopherResponsePart.swift */; };
 		A093BE721E7A15B400884283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE711E7A15B400884283 /* AppDelegate.swift */; };
 		A093BE741E7A15B400884283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A093BE731E7A15B400884283 /* Assets.xcassets */; };
 		A093BE771E7A15B400884283 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A093BE751E7A15B400884283 /* MainMenu.xib */; };
@@ -44,6 +48,10 @@
 		46528105DF5300D80CF24631 /* Pods-PatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatchTests/Pods-PatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		6591A9162B512F9C3D688CEA /* Pods-PatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatchUITests/Pods-PatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		974BC531AAC39DB943DA3EE6 /* Pods_Patch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A02176A61E99B68900180ED6 /* GopherPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherPage.swift; sourceTree = "<group>"; };
+		A02176A81E99B6AB00180ED6 /* GopherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherRequest.swift; sourceTree = "<group>"; };
+		A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherResponse.swift; sourceTree = "<group>"; };
+		A02176AC1E99B6EB00180ED6 /* GopherResponsePart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherResponsePart.swift; sourceTree = "<group>"; };
 		A093BE6E1E7A15B400884283 /* Patch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Patch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A093BE711E7A15B400884283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A093BE731E7A15B400884283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +124,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A02176AE1E99B72400180ED6 /* Gopher */ = {
+			isa = PBXGroup;
+			children = (
+				A093BE9C1E7A185200884283 /* Gopher.swift */,
+				A02176AC1E99B6EB00180ED6 /* GopherResponsePart.swift */,
+				A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */,
+				A02176A81E99B6AB00180ED6 /* GopherRequest.swift */,
+				A02176A61E99B68900180ED6 /* GopherPage.swift */,
+			);
+			name = Gopher;
+			sourceTree = "<group>";
+		};
 		A093BE651E7A15B400884283 = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				A093BE711E7A15B400884283 /* AppDelegate.swift */,
-				A093BE9C1E7A185200884283 /* Gopher.swift */,
 				A093BE9A1E7A15D400884283 /* MainWindowController.swift */,
+				A02176AE1E99B72400180ED6 /* Gopher */,
 				A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */,
 				A093BE731E7A15B400884283 /* Assets.xcassets */,
 				A093BE751E7A15B400884283 /* MainMenu.xib */,
@@ -453,8 +473,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02176AD1E99B6EB00180ED6 /* GopherResponsePart.swift in Sources */,
 				A0C7B7FF1E91AE4E0010BD86 /* Gopher.swift in Sources */,
+				A02176AB1E99B6DA00180ED6 /* GopherResponse.swift in Sources */,
+				A02176A71E99B68900180ED6 /* GopherPage.swift in Sources */,
 				A093BE9B1E7A15D400884283 /* MainWindowController.swift in Sources */,
+				A02176A91E99B6AB00180ED6 /* GopherRequest.swift in Sources */,
 				A093BE721E7A15B400884283 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

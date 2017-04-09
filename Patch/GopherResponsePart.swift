@@ -1,0 +1,38 @@
+//
+//  GopherResponsePart.swift
+//  Patch
+//
+//  Created by Jacob Budin on 4/8/17.
+//  Copyright © 2017 Jacob Budin. All rights reserved.
+//
+
+import Foundation
+
+class GopherResponsePart {
+    
+    let type: Character
+    let content: String
+    let url: URL?
+    
+    var html: String {
+        if type == "0" || type == "1" {
+            return "<p><a href=\"\(url!.absoluteString)\">" + content + "</a></p>"
+        }
+        
+        return "<p>" + content + "</p>"
+    }
+    
+    init(string: String) {
+        let parts = string.components(separatedBy: "\t")
+        
+        self.type = string[string.startIndex]
+        self.content = parts[0].substring(from: string.index(string.startIndex, offsetBy: 1))
+        
+        if parts.count >= 3 {
+            self.url = URL(string: "gopher://" + parts[2] + parts[1])
+        }
+        else {
+            self.url = nil
+        }
+    }
+}

@@ -5,8 +5,8 @@ target 'Patch' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'BlueSocket', '~> 0.12'
-  pod 'ReactiveSwift', '~> 1.1'
+  pod 'BlueSocket', '~> 1.0'
+  pod 'ReactiveSwift', '~> 6.2'
 
   # Pods for Patch
 

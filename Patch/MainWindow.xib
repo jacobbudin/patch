@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +23,7 @@
             <value key="minSize" type="size" width="480" height="360"/>
             <view key="contentView" wantsLayer="YES" id="K5a-FI-SyS">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <webView translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Ur-WX0">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
@@ -48,12 +48,12 @@
                         <nil key="toolTip"/>
                         <size key="minSize" width="250" height="22"/>
                         <size key="maxSize" width="460" height="22"/>
-                        <textField key="view" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="gMf-Q5-Qki">
+                        <textField key="view" verticalHuggingPriority="750" id="gMf-Q5-Qki">
                             <rect key="frame" x="0.0" y="14" width="275" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7mW-bj-f5K">
-                                <font key="font" metaFont="cellTitle"/>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <font key="font" metaFont="label" size="12"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
@@ -70,6 +70,7 @@
                     <toolbarItem reference="7HC-c5-NGx"/>
                 </defaultToolbarItems>
             </toolbar>
+            <point key="canvasLocation" x="132" y="131"/>
         </window>
     </objects>
 </document>

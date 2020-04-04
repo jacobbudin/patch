@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BlueSocket
+import Socket
 
 class GopherRequest {
     let url: URL

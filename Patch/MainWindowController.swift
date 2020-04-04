@@ -63,9 +63,10 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         let page = GopherPage(url: url!)
         page.status.signal.observe(on: UIScheduler()).observeValues { _ in
             if page.status.value == .Parsed {
-                guard let response = page.response else {
+                guard page.response != nil else {
                     return
                 }
+
                 let html = page.html
                 let url = URL(string: page.request!.url.path)
                 self.contentWebView.mainFrame.loadHTMLString(html, baseURL: url)

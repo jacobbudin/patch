@@ -42,7 +42,7 @@ class GopherRequest {
                 if self.url.path.isEmpty == false {
                     
                     let crlf = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
-                    requestData = String(self.url.path.characters.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
+                    requestData = String(self.url.path.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
                 }
                 
                 try socket.write(from: requestData!)
@@ -61,7 +61,7 @@ class GopherRequest {
                 handler(readData)
             }
             catch let error {
-                guard let socketError = error as? Socket.Error else {
+                guard error is Socket.Error else {
                     print("Unexpected error by connection at \(socket.remoteHostname):\(socket.remotePort)...")
                     return
                 }

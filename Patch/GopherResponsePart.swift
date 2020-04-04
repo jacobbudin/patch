@@ -26,7 +26,7 @@ class GopherResponsePart {
         let parts = string.components(separatedBy: "\t")
         
         self.type = string[string.startIndex]
-        self.content = parts[0].substring(from: string.index(string.startIndex, offsetBy: 1))
+        self.content = String(parts[0][string.index(string.startIndex, offsetBy: 1)...])
         
         if parts.count >= 3 {
             self.url = URL(string: "gopher://" + parts[2] + parts[1])

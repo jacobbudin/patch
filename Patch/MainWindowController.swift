@@ -79,8 +79,11 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
 
     func save() {
         let panel = NSSavePanel()
-        panel.canCreateDirectories = true
-        panel.showsTagField = true
+        let url = self.page?.request?.url
+        let fileName = url?.pathComponents.count != 0 ? url?.pathComponents.last : url?.host
+        panel.nameFieldStringValue = "\(fileName ?? "untitled").html"
+        panel.allowedFileTypes = ["html"]
+        panel.allowsOtherFileTypes = false
         panel.begin { (result) in
             guard
                 result.rawValue == NSFileHandlingPanelOKButton,

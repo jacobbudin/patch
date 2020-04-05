@@ -24,15 +24,22 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     }
     
     override func windowDidLoad() {
+        // Load home page
         go(home)
     }
     
+    /*
+     Load URL in webview
+     */
     func go(_ url: URL) {
         print("Going to \(url)...")
         urlTextField.stringValue = url.absoluteString
         submit(sender: nil)
     }
     
+    /*
+     Capture webview link clicks
+     */
     func webView(_ webView: WebView!, decidePolicyForNavigationAction actionInformation: [AnyHashable : Any]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
         
         let navUrl = (actionInformation[WebActionOriginalURLKey] as? URL) ?? nil
@@ -54,6 +61,9 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         listener.use()
     }
 
+    /*
+     Listen to submit of URL input
+     */
     @IBAction func submit(sender: AnyObject?) {
         let url = URL(string: urlTextField.stringValue)
         
@@ -77,6 +87,9 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         self.page = page
     }
 
+    /*
+     Save current page to file
+     */
     func save() {
         let panel = NSSavePanel()
         let url = self.page?.request?.url

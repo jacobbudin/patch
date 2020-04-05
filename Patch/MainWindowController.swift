@@ -17,6 +17,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     @IBOutlet weak var contentWebView: WebView!
     
     let home = URL(string: "gopher://gopher.floodgap.com")!
+    var page: GopherPage?
     
     override var windowNibName : String! {
         return "MainWindow"
@@ -73,6 +74,27 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
             }
         }
         page.load()
+        self.page = page
     }
-    
+
+    func save() {
+        let panel = NSSavePanel()
+        panel.canCreateDirectories = true
+        panel.showsTagField = true
+        panel.begin { (result) in
+            guard
+                result.rawValue == NSFileHandlingPanelOKButton,
+                let fileLocation = panel.url
+            else {
+                return
+            }
+
+            do {
+                try self.page?.html.data(using: .utf8)?.write(to: fileLocation)
+            } catch {
+                // TODO: Write error
+            }
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 body {
-    font-family: -apple-system;
+    font-family: monospace;
     margin: 0 auto;
     padding: 1em;
     max-width: 40em;
+    white-space: pre;
 }

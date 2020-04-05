@@ -44,18 +44,32 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="FC5B8335-7688-42CD-BE4C-6B99C783DF04" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="ChY-Ir-9J6">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="56709D64-B876-4183-92FB-6E855E9C5F5D" label="" paletteLabel="Back" image="NSGoLeftTemplate" sizingBehavior="auto" id="mQs-wt-7CG">
+                    <toolbarItem implicitItemIdentifier="A6FA314C-D07C-4CBC-9E06-141378644204" label="" paletteLabel="Back" image="NSGoLeftTemplate" sizingBehavior="auto" id="Swt-Nt-EJC">
                         <nil key="toolTip"/>
-                        <button key="view" verticalHuggingPriority="750" id="AmB-gY-NRG">
+                        <button key="view" verticalHuggingPriority="750" id="YxT-HQ-cfV">
                             <rect key="frame" x="2" y="14" width="30" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSGoLeftTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O7t-it-d03">
+                            <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSGoLeftTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mDT-pQ-EGF">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <connections>
-                            <action selector="backWithSender:" target="-2" id="ypO-Mf-APY"/>
+                            <action selector="backWithSender:" target="-2" id="4Ne-9w-mUD"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="56709D64-B876-4183-92FB-6E855E9C5F5D" label="" paletteLabel="Forward" image="NSGoRightTemplate" sizingBehavior="auto" id="mQs-wt-7CG">
+                        <nil key="toolTip"/>
+                        <button key="view" verticalHuggingPriority="750" id="AmB-gY-NRG">
+                            <rect key="frame" x="10" y="14" width="30" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSGoRightTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O7t-it-d03">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="forwardWithSender:" target="-2" id="mTJ-k8-MtM"/>
                         </connections>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="EBCEE714-2274-49FD-8B46-9B4E6646FCDB" label="" paletteLabel="URL" id="i9R-hk-9IC">
@@ -79,6 +93,7 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="7HC-c5-NGx"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
+                    <toolbarItem reference="Swt-Nt-EJC"/>
                     <toolbarItem reference="mQs-wt-7CG"/>
                     <toolbarItem reference="7HC-c5-NGx"/>
                     <toolbarItem reference="i9R-hk-9IC"/>
@@ -90,5 +105,6 @@
     </objects>
     <resources>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
+        <image name="NSGoRightTemplate" width="9" height="12"/>
     </resources>
 </document>

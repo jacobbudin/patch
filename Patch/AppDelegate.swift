@@ -33,6 +33,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func saveDocumentAs(sender: NSMenuItem) {
         mainWindowController?.save()
     }
+    
+    @IBAction func back(sender: NSMenuItem) {
+        mainWindowController?.back(sender: sender)
+    }
+    
+    @IBAction func forward(sender: NSMenuItem) {
+        mainWindowController?.forward(sender: sender)
+    }
+    
+    @IBAction func home(sender: NSMenuItem) {
+        mainWindowController?.home(sender: sender)
+    }
 
 }
 

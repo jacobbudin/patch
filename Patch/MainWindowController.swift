@@ -18,6 +18,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     
     let home = URL(string: "gopher://gopher.floodgap.com")!
     var history: [URL] = []
+    var historyI = -1
     var page: GopherPage?
     
     override var windowNibName : String! {
@@ -33,18 +34,37 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
      Load previous state in history
      */
     @IBAction func back(sender: AnyObject?) {
-        // Disallow pop-procedure for when on "first" page
-        if history.count <= 1 {
+        // Disallow when on "first" page
+        if historyI == 0 {
             return
         }
         
-        guard let _ = history.popLast(), let previousUrl = history.popLast() else {
+        historyI -= 1
+        let previousUrl = history[historyI]
+        load(previousUrl, affectsHistory: false)
+    }
+
+    /*
+     Undo previous state in history
+     */
+    @IBAction func forward(sender: AnyObject?) {
+        // Disallow when on "last" page
+        if history.count == historyI + 1 {
             return
         }
-
-        load(previousUrl)
+        
+        historyI += 1
+        let nextUrl = history[historyI]
+        load(nextUrl, affectsHistory: false)
     }
-    
+
+    /*
+     Listen to home page clicks
+     */
+    @IBAction func home(sender: AnyObject?) {
+        load(home)
+    }
+
     /*
      Capture webview link clicks
      */
@@ -84,7 +104,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     /*
      Load URL in webview
      */
-    func load(_ url: URL) {
+    func load(_ url: URL, affectsHistory: Bool = true) {
         print("Loading \(url)")
         urlTextField.stringValue = url.absoluteString
 
@@ -102,8 +122,19 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         }
         page.load()
         
-        // Add URL to history
-        self.history.append(url)
+        if affectsHistory {
+            // Never modify history on same URL
+            if self.history.last == url {
+                return
+            }
+            
+            // Remove any forward-facing URLs
+            self.history.removeLast(self.history.count - self.historyI - 1)
+            
+            // Update history
+            self.historyI += 1
+            self.history.append(url)
+        }
 
         self.page = page
     }

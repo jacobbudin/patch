@@ -17,6 +17,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     @IBOutlet weak var contentWebView: WebView!
     
     let home = URL(string: "gopher://gopher.floodgap.com")!
+    var history: [URL] = []
     var page: GopherPage?
     
     override var windowNibName : String! {
@@ -25,16 +26,23 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     
     override func windowDidLoad() {
         // Load home page
-        go(home)
+        load(home)
     }
     
     /*
-     Load URL in webview
+     Load previous state in history
      */
-    func go(_ url: URL) {
-        print("Going to \(url)...")
-        urlTextField.stringValue = url.absoluteString
-        submit(sender: nil)
+    @IBAction func back(sender: AnyObject?) {
+        // Disallow pop-procedure for when on "first" page
+        if history.count <= 1 {
+            return
+        }
+        
+        guard let _ = history.popLast(), let previousUrl = history.popLast() else {
+            return
+        }
+
+        load(previousUrl)
     }
     
     /*
@@ -54,7 +62,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
                 return
             }
             
-            go(url)
+            load(url)
             return
         }
         
@@ -65,13 +73,22 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
      Listen to submit of URL input
      */
     @IBAction func submit(sender: AnyObject?) {
-        let url = URL(string: urlTextField.stringValue)
-        
-        guard url != nil else {
+        print("submit")
+        guard let url = URL(string: urlTextField.stringValue) else {
             return
         }
-        
-        let page = GopherPage(url: url!)
+
+        load(url)
+    }
+
+    /*
+     Load URL in webview
+     */
+    func load(_ url: URL) {
+        print("Loading \(url)")
+        urlTextField.stringValue = url.absoluteString
+
+        let page = GopherPage(url: url)
         page.status.signal.observe(on: UIScheduler()).observeValues { _ in
             if page.status.value == .Parsed {
                 guard page.response != nil else {
@@ -84,6 +101,10 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
             }
         }
         page.load()
+        
+        // Add URL to history
+        self.history.append(url)
+
         self.page = page
     }
 

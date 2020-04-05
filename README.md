@@ -4,13 +4,13 @@ Patch is a native, modern [Gopher](https://en.wikipedia.org/wiki/Gopher_(protoco
 
 ## Technologies
 
-- Swift 3.0
+- Swift 4.2
 - macOS SDK
 
 ## Requirements
 
-- macOS 10.12
-- Xcode 8.2
+- macOS 10.12+
+- Xcode 11.3+
 - [CocoaPods](https://cocoapods.org) (see packages in [`Podfile`](Podfile))
 
 ## Building

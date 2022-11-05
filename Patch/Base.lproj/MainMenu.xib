@@ -66,7 +66,7 @@
                         <items>
                             <menuItem title="New Window" keyEquivalent="n" id="Was-JA-tGl">
                                 <connections>
-                                    <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
+                                    <action selector="newDocumentWithSender:" target="-1" id="8S7-xA-wBe"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Open Location…" keyEquivalent="l" id="IAo-SY-fd9">
@@ -82,7 +82,7 @@
                             </menuItem>
                             <menuItem title="Save As…" keyEquivalent="s" id="Bw7-FT-i3A">
                                 <connections>
-                                    <action selector="saveDocumentAsSender:" target="Voe-Tx-rLC" id="PRB-e0-YbP"/>
+                                    <action selector="saveDocumentAsSender:" target="-1" id="KwD-mU-O6c"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
@@ -317,21 +317,9 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="History" id="GEO-Iw-cKr">
                         <items>
-                            <menuItem title="Back" keyEquivalent="[" id="vFl-Xe-Klw">
-                                <connections>
-                                    <action selector="backWithSender:" target="Voe-Tx-rLC" id="Qii-ee-dqe"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Forward" keyEquivalent="]" id="RZv-TT-x9m">
-                                <connections>
-                                    <action selector="forwardWithSender:" target="Voe-Tx-rLC" id="RnQ-Ki-qPC"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Home" keyEquivalent="H" id="uQf-3j-IPk">
-                                <connections>
-                                    <action selector="homeWithSender:" target="Voe-Tx-rLC" id="xGW-Sa-Qur"/>
-                                </connections>
-                            </menuItem>
+                            <menuItem title="Back" keyEquivalent="[" id="vFl-Xe-Klw"/>
+                            <menuItem title="Forward" keyEquivalent="]" id="RZv-TT-x9m"/>
+                            <menuItem title="Home" keyEquivalent="H" id="uQf-3j-IPk"/>
                         </items>
                     </menu>
                 </menuItem>

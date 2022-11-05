@@ -142,7 +142,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     /*
      Save current page to file
      */
-    func save() {
+    @IBAction func saveDocumentAs(sender: AnyObject?) {
         let panel = NSSavePanel()
         let url = self.page?.request?.url
         let fileName = url?.pathComponents.count != 0 ? url?.pathComponents.last : url?.host

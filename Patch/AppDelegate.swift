@@ -11,14 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    var mainWindowController: MainWindowController?
+    var mainWindowControllers: [MainWindowController] = []
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        if (mainWindowController == nil) {
-            mainWindowController = MainWindowController()
-        }
-        
-        mainWindowController?.window?.makeKeyAndOrderFront(self)
+        newWindow()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -26,25 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        mainWindowController?.window?.makeKeyAndOrderFront(self)
+        for mainWindowController in mainWindowControllers {
+            mainWindowController.window?.makeKeyAndOrderFront(self)
+        }
+        
         return true
     }
-
-    @IBAction func saveDocumentAs(sender: NSMenuItem) {
-        mainWindowController?.save()
+    
+    func newWindow() {
+        let mainWindowController = MainWindowController()
+        mainWindowController.window?.makeKeyAndOrderFront(self)
+        mainWindowController.window?.makeFirstResponder(mainWindowController)
+        mainWindowControllers.append(mainWindowController)
     }
     
-    @IBAction func back(sender: NSMenuItem) {
-        mainWindowController?.back(sender: sender)
-    }
-    
-    @IBAction func forward(sender: NSMenuItem) {
-        mainWindowController?.forward(sender: sender)
-    }
-    
-    @IBAction func home(sender: NSMenuItem) {
-        mainWindowController?.home(sender: sender)
+    @IBAction func newDocument(sender: AnyObject?) {
+        newWindow()
     }
 
 }
-

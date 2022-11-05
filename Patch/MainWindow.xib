@@ -19,7 +19,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1235"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1260"/>
             <value key="minSize" type="size" width="480" height="360"/>
             <view key="contentView" wantsLayer="YES" id="K5a-FI-SyS">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
@@ -75,10 +75,10 @@
                     <toolbarItem implicitItemIdentifier="EBCEE714-2274-49FD-8B46-9B4E6646FCDB" label="" paletteLabel="URL" sizingBehavior="auto" id="i9R-hk-9IC">
                         <nil key="toolTip"/>
                         <textField key="view" verticalHuggingPriority="750" id="gMf-Q5-Qki">
-                            <rect key="frame" x="0.0" y="14" width="275" height="20"/>
+                            <rect key="frame" x="0.0" y="14" width="275" height="21"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter address" drawsBackground="YES" usesSingleLineMode="YES" id="7mW-bj-f5K">
-                                <font key="font" metaFont="cellTitle"/>
+                                <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
@@ -98,6 +98,9 @@
                     <toolbarItem reference="7HC-c5-NGx"/>
                 </defaultToolbarItems>
             </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="V42-wi-ewt"/>
+            </connections>
             <point key="canvasLocation" x="132" y="131"/>
         </window>
     </objects>

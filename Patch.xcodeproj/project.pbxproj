@@ -12,12 +12,13 @@
 		A02176A91E99B6AB00180ED6 /* GopherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176A81E99B6AB00180ED6 /* GopherRequest.swift */; };
 		A02176AB1E99B6DA00180ED6 /* GopherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */; };
 		A02176AD1E99B6EB00180ED6 /* GopherResponsePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176AC1E99B6EB00180ED6 /* GopherResponsePart.swift */; };
+		A08ED1622916D58200B3C4A8 /* GopherPageStyle-Dark.css in Resources */ = {isa = PBXBuildFile; fileRef = A08ED1612916D0F700B3C4A8 /* GopherPageStyle-Dark.css */; };
 		A093BE721E7A15B400884283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE711E7A15B400884283 /* AppDelegate.swift */; };
 		A093BE741E7A15B400884283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A093BE731E7A15B400884283 /* Assets.xcassets */; };
 		A093BE771E7A15B400884283 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A093BE751E7A15B400884283 /* MainMenu.xib */; };
 		A093BE821E7A15B400884283 /* PatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE811E7A15B400884283 /* PatchTests.swift */; };
 		A093BE8D1E7A15B400884283 /* PatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE8C1E7A15B400884283 /* PatchUITests.swift */; };
-		A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */; };
+		A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle-Light.css in Resources */ = {isa = PBXBuildFile; fileRef = A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle-Light.css */; };
 		A0C7B7FF1E91AE4E0010BD86 /* Gopher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093BE9C1E7A185200884283 /* Gopher.swift */; };
 		A0DAE5142439687200DA2CE7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DAE5132439687100DA2CE7 /* MainWindowController.swift */; };
 		A0EFA2B61E7A269A005BED6B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EFA2B51E7A269A005BED6B /* MainWindow.xib */; };
@@ -52,6 +53,7 @@
 		A02176A81E99B6AB00180ED6 /* GopherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherRequest.swift; sourceTree = "<group>"; };
 		A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherResponse.swift; sourceTree = "<group>"; };
 		A02176AC1E99B6EB00180ED6 /* GopherResponsePart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherResponsePart.swift; sourceTree = "<group>"; };
+		A08ED1612916D0F700B3C4A8 /* GopherPageStyle-Dark.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = "GopherPageStyle-Dark.css"; sourceTree = "<group>"; };
 		A093BE6E1E7A15B400884283 /* Patch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Patch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A093BE711E7A15B400884283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A093BE731E7A15B400884283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		A093BE8C1E7A15B400884283 /* PatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchUITests.swift; sourceTree = "<group>"; };
 		A093BE8E1E7A15B400884283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A093BE9C1E7A185200884283 /* Gopher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gopher.swift; sourceTree = "<group>"; };
-		A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GopherPageStyle.css; sourceTree = "<group>"; };
+		A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle-Light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "GopherPageStyle-Light.css"; sourceTree = "<group>"; };
 		A0DAE5132439687100DA2CE7 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		A0EFA2B51E7A269A005BED6B /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		BE98003AB72354086962BBD1 /* Pods-Patch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Patch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Patch/Pods-Patch.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +166,8 @@
 				A093BE711E7A15B400884283 /* AppDelegate.swift */,
 				A0DAE5132439687100DA2CE7 /* MainWindowController.swift */,
 				A02176AE1E99B72400180ED6 /* Gopher */,
-				A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle.css */,
+				A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle-Light.css */,
+				A08ED1612916D0F700B3C4A8 /* GopherPageStyle-Dark.css */,
 				A093BE731E7A15B400884283 /* Assets.xcassets */,
 				A093BE751E7A15B400884283 /* MainMenu.xib */,
 				A0EFA2B51E7A269A005BED6B /* MainWindow.xib */,
@@ -306,7 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A093BE741E7A15B400884283 /* Assets.xcassets in Resources */,
-				A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle.css in Resources */,
+				A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle-Light.css in Resources */,
+				A08ED1622916D58200B3C4A8 /* GopherPageStyle-Dark.css in Resources */,
 				A093BE771E7A15B400884283 /* MainMenu.xib in Resources */,
 				A0EFA2B61E7A269A005BED6B /* MainWindow.xib in Resources */,
 			);

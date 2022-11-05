@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newWindow() {
         let mainWindowController = MainWindowController()
         mainWindowController.window?.makeKeyAndOrderFront(self)
-        mainWindowController.window?.makeFirstResponder(mainWindowController)
+        mainWindowController.window?.makeFirstResponder(mainWindowController.window)
         mainWindowControllers.append(mainWindowController)
     }
     

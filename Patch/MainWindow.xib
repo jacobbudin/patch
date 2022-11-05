@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="contentWebView" destination="9XR-Ur-WX0" id="jaA-sO-CAS"/>
                 <outlet property="urlTextField" destination="gMf-Q5-Qki" id="po2-DP-Aid"/>
+                <outlet property="window" destination="rls-b0-5OQ" id="IaH-a4-EGT"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

@@ -17,11 +17,17 @@ class GopherPage {
     var html: String {
         let type = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? "Light"
         let cssName = "GopherPageStyle-" + type
-        let cssPath = Bundle.main.path(forResource: cssName, ofType: "css")
-        guard let resolvedCssPath = cssPath else {
+        guard let cssPath = Bundle.main.path(forResource: cssName, ofType: "css") else {
             fatalError("Gopher page stylesheet (\(cssName)) could not be located")
         }
         
+        let styles: String
+        do {
+            styles = try String(contentsOfFile: cssPath, encoding: .utf8)
+        } catch {
+            fatalError("Gopher page stylesheet (\(cssName)) could not be loaded")
+        }
+
         var contentHtml: String
         
         if (self.response?.isDirectory)! {
@@ -35,7 +41,7 @@ class GopherPage {
             contentHtml = parseRaw()
         }
         
-        return "<html><head><link href=\"file://\(resolvedCssPath)\" rel=\"stylesheet\"></head><body>" + contentHtml + "</body></html>"
+        return "<html><head><style>" + styles + "</style></head><body>" + contentHtml + "</body></html>"
     }
     
     let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!

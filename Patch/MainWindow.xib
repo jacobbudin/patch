@@ -72,13 +72,11 @@
                             <action selector="forwardWithSender:" target="-2" id="mTJ-k8-MtM"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="EBCEE714-2274-49FD-8B46-9B4E6646FCDB" label="" paletteLabel="URL" id="i9R-hk-9IC">
+                    <toolbarItem implicitItemIdentifier="EBCEE714-2274-49FD-8B46-9B4E6646FCDB" label="" paletteLabel="URL" sizingBehavior="auto" id="i9R-hk-9IC">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="250" height="22"/>
-                        <size key="maxSize" width="460" height="22"/>
                         <textField key="view" verticalHuggingPriority="750" id="gMf-Q5-Qki">
-                            <rect key="frame" x="0.0" y="14" width="275" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <rect key="frame" x="0.0" y="14" width="275" height="20"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Enter address" drawsBackground="YES" usesSingleLineMode="YES" id="7mW-bj-f5K">
                                 <font key="font" metaFont="cellTitle"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>

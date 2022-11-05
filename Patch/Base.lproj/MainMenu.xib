@@ -317,9 +317,21 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="History" id="GEO-Iw-cKr">
                         <items>
-                            <menuItem title="Back" keyEquivalent="[" id="vFl-Xe-Klw"/>
-                            <menuItem title="Forward" keyEquivalent="]" id="RZv-TT-x9m"/>
-                            <menuItem title="Home" keyEquivalent="H" id="uQf-3j-IPk"/>
+                            <menuItem title="Back" keyEquivalent="[" id="vFl-Xe-Klw">
+                                <connections>
+                                    <action selector="backWithSender:" target="-1" id="43m-mx-rJ1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Forward" keyEquivalent="]" id="RZv-TT-x9m">
+                                <connections>
+                                    <action selector="forwardWithSender:" target="-1" id="C4h-ur-QQm"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Home" keyEquivalent="H" id="uQf-3j-IPk">
+                                <connections>
+                                    <action selector="homeWithSender:" target="-1" id="DZM-Ui-Uwv"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

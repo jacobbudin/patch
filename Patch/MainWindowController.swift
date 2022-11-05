@@ -20,6 +20,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
     var history: [URL] = []
     var historyI = -1
     var page: GopherPage?
+    var loaded = false
     
     override var windowNibName : String! {
         return "MainWindow"
@@ -109,12 +110,13 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         urlTextField.stringValue = url.absoluteString
 
         let page = GopherPage(url: url)
+        loaded = false
         page.status.signal.observe(on: UIScheduler()).observeValues { _ in
-            if page.status.value == .Parsed {
+            if page.status.value == .Parsed && self.loaded == false {
+                self.loaded = true
                 guard page.response != nil else {
                     return
                 }
-
                 let html = page.html
                 let url = URL(string: page.request!.url.path)
                 self.contentWebView.mainFrame.loadHTMLString(html, baseURL: url)

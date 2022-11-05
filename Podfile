@@ -8,7 +8,7 @@ target 'Patch' do
   use_frameworks!
 
   pod 'BlueSocket', '~> 1.0'
-  pod 'ReactiveSwift', '~> 6.2'
+  pod 'ReactiveSwift', '~> 7.0'
 
   # Pods for Patch
 

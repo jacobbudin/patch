@@ -1,10 +1,10 @@
 PODS:
   - BlueSocket (1.0.52)
-  - ReactiveSwift (6.2.1)
+  - ReactiveSwift (7.0.0)
 
 DEPENDENCIES:
   - BlueSocket (~> 1.0)
-  - ReactiveSwift (~> 6.2)
+  - ReactiveSwift (~> 7.0)
 
 SPEC REPOS:
   trunk:
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BlueSocket: 1acd943acb07b55905291d608649fcfbf8cbd57d
-  ReactiveSwift: 07ddf579f4eb3ee3bd656214f0461aaf2c0fd639
+  ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
 
-PODFILE CHECKSUM: 322fc8a6de17612217872546a98243f54558d2e9
+PODFILE CHECKSUM: e96beb2bc2b2e664d7e5156df65996a21a326d36
 
 COCOAPODS: 1.11.3

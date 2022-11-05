@@ -20,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1260"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1235"/>
             <value key="minSize" type="size" width="480" height="360"/>
             <view key="contentView" wantsLayer="YES" id="K5a-FI-SyS">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
@@ -73,6 +73,20 @@
                             <action selector="forwardWithSender:" target="-2" id="mTJ-k8-MtM"/>
                         </connections>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="C320C6F2-5EF7-40F1-8F14-A2720D027587" label="" paletteLabel="Home" image="NSHomeTemplate" bordered="YES" title="Textured Rounded" sizingBehavior="auto" id="JfE-kX-HCo" userLabel="Home">
+                        <nil key="toolTip"/>
+                        <button key="view" verticalHuggingPriority="750" id="SO0-0b-8SW">
+                            <rect key="frame" x="4" y="14" width="31" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="NSHomeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y4h-HL-Qn1">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="homeWithSender:" target="-1" id="p6h-mJ-C0d"/>
+                        </connections>
+                    </toolbarItem>
                     <toolbarItem implicitItemIdentifier="EBCEE714-2274-49FD-8B46-9B4E6646FCDB" label="" paletteLabel="URL" sizingBehavior="auto" id="i9R-hk-9IC">
                         <nil key="toolTip"/>
                         <textField key="view" verticalHuggingPriority="750" id="gMf-Q5-Qki">
@@ -108,5 +122,6 @@
     <resources>
         <image name="NSGoLeftTemplate" width="10" height="14"/>
         <image name="NSGoRightTemplate" width="10" height="14"/>
+        <image name="NSHomeTemplate" width="19" height="16"/>
     </resources>
 </document>

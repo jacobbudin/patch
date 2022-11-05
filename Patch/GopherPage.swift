@@ -15,10 +15,11 @@ class GopherPage {
     var status: MutableProperty<GopherStatus> = MutableProperty(.Queued)
     
     var html: String {
-        
-        let cssPath = Bundle.main.path(forResource: "GopherPageStyle", ofType: "css")
+        let type = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? "Light"
+        let cssName = "GopherPageStyle-" + type
+        let cssPath = Bundle.main.path(forResource: cssName, ofType: "css")
         guard let resolvedCssPath = cssPath else {
-            fatalError("Gopher page stylesheet could not be located")
+            fatalError("Gopher page stylesheet (\(cssName)) could not be located")
         }
         
         var contentHtml: String

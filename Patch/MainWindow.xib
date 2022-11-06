@@ -3,13 +3,13 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="21507"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Patch" customModuleProvider="target">
             <connections>
-                <outlet property="contentWebView" destination="9XR-Ur-WX0" id="jaA-sO-CAS"/>
+                <outlet property="contentWebView" destination="Ciw-1O-LLF" id="Arz-ET-VoK"/>
                 <outlet property="urlTextField" destination="gMf-Q5-Qki" id="po2-DP-Aid"/>
                 <outlet property="window" destination="rls-b0-5OQ" id="IaH-a4-EGT"/>
             </connections>
@@ -26,22 +26,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <webView translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Ur-WX0">
+                    <wkWebView wantsLayer="YES" id="Ciw-1O-LLF">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
-                        <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
-                            <nil key="identifier"/>
-                        </webPreferences>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
                         <connections>
-                            <outlet property="policyDelegate" destination="-2" id="wfn-wN-Uhy"/>
+                            <outlet property="navigationDelegate" destination="-2" id="xAv-am-eon"/>
                         </connections>
-                    </webView>
+                    </wkWebView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="9XR-Ur-WX0" firstAttribute="top" secondItem="K5a-FI-SyS" secondAttribute="top" id="2q2-FT-PKH"/>
-                    <constraint firstAttribute="bottom" secondItem="9XR-Ur-WX0" secondAttribute="bottom" id="Efw-cs-Jtr"/>
-                    <constraint firstItem="9XR-Ur-WX0" firstAttribute="leading" secondItem="K5a-FI-SyS" secondAttribute="leading" id="F9L-6a-xOR"/>
-                    <constraint firstAttribute="trailing" secondItem="9XR-Ur-WX0" secondAttribute="trailing" id="xpX-db-pIU"/>
-                </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="FC5B8335-7688-42CD-BE4C-6B99C783DF04" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="ChY-Ir-9J6">
                 <allowedToolbarItems>

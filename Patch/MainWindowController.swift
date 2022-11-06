@@ -11,10 +11,10 @@ import Foundation
 import WebKit
 import ReactiveSwift
 
-class MainWindowController: NSWindowController, WebPolicyDelegate {
+class MainWindowController: NSWindowController, WKNavigationDelegate {
     
     @IBOutlet weak var urlTextField: NSTextField!
-    @IBOutlet weak var contentWebView: WebView!
+    @IBOutlet weak var contentWebView: WKWebView!
     
     let home = URL(string: "gopher://gopher.floodgap.com")!
     var history: [URL] = []
@@ -66,28 +66,14 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
         load(home)
     }
 
-    /*
-     Capture webview link clicks
-     */
-    func webView(_ webView: WebView!, decidePolicyForNavigationAction actionInformation: [AnyHashable : Any]!, request: URLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
-        
-        let navUrl = (actionInformation[WebActionOriginalURLKey] as? URL) ?? nil
-        let navTypeObject = (actionInformation[WebActionNavigationTypeKey] as? Int) ?? 0
-        let navTypeCode: WebNavigationType = WebNavigationType(rawValue: navTypeObject) ?? .other
-        
-        if navTypeCode != .other {
-            print("Hijacked page load")
-            listener.ignore()
-            
-            guard let url = navUrl else {
-                return
-            }
-            
-            load(url)
-            return
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+        if navigationAction.navigationType == WKNavigationType.other {
+            return WKNavigationActionPolicy.allow
         }
-        
-        listener.use()
+        if let url = navigationAction.request.mainDocumentURL {
+            load(url)
+        }
+        return WKNavigationActionPolicy.cancel
     }
 
     /*
@@ -119,7 +105,7 @@ class MainWindowController: NSWindowController, WebPolicyDelegate {
                 }
                 let html = page.html
                 let url = URL(string: page.request!.url.path)
-                self.contentWebView.mainFrame.loadHTMLString(html, baseURL: url)
+                self.contentWebView.loadHTMLString(html, baseURL: url)
             }
         }
         page.load()

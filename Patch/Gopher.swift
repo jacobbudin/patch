@@ -9,7 +9,7 @@
 import Foundation
 
 enum GopherStatus {
-    case Queued, Loading, Loaded, Parsed
+    case Queued, Loading, Loaded, Parsed, Failed
 }
 
 enum GopherResponseError {

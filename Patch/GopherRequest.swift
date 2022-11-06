@@ -11,22 +11,20 @@ import Socket
 
 class GopherRequest {
     let url: URL
-    let socket: Socket
-    
+    var socket: Socket?
     
     init?(url: URL) {
         self.url = url
-        do {
-            self.socket = try Socket.create(family: Socket.ProtocolFamily.inet)
-            try self.socket.connect(to: self.url.host!, port: 70)
-        }
-        catch let error {
-            print(error)
-            return nil
-        }
     }
     
-    func load(handler: @escaping (Data) -> Void) {
+    func load(handler: @escaping (Data) -> Void) throws {
+        guard let host = self.url.host else {
+            throw URLError(URLError.cannotFindHost)
+        }
+        
+        socket = try Socket.create(family: Socket.ProtocolFamily.inet)
+        try socket!.connect(to: host, port: 70)
+        
         let queue = DispatchQueue.global(qos: .default)
         
         // Create the run loop work item and dispatch to the default priority global queue...
@@ -45,10 +43,10 @@ class GopherRequest {
                     requestData = String(self.url.path.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
                 }
                 
-                try socket.write(from: requestData!)
+                try socket!.write(from: requestData!)
                 
                 repeat {
-                    let bytesRead = try socket.read(into: &readData)
+                    let bytesRead = try socket!.read(into: &readData)
                     
                     if bytesRead == 0 {
                         shouldKeepRunning = false
@@ -57,12 +55,12 @@ class GopherRequest {
                     
                 } while shouldKeepRunning
                 
-                socket.close()
+                socket!.close()
                 handler(readData)
             }
             catch let error {
                 guard error is Socket.Error else {
-                    print("Unexpected error by connection at \(socket.remoteHostname):\(socket.remotePort)...")
+                    print("Unexpected error by connection at \(socket!.remoteHostname):\(socket!.remotePort)...")
                     return
                 }
             }

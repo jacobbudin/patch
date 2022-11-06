@@ -30,7 +30,11 @@ class GopherPage {
 
         var contentHtml: String
         
-        if (self.response?.isDirectory)! {
+        if (self.status.value == GopherStatus.Failed) {
+            print("Showing error...")
+            contentHtml = "Could not load \(self.request!.url)"
+        }
+        else if (self.response?.isDirectory)! {
             print("Showing directory...")
             contentHtml = parseDirectory().map({
                 $0.html
@@ -58,11 +62,15 @@ class GopherPage {
         
         self.status.value = .Loading
         
-        request.load() {
-            (data) in
-            self.status.value = .Loaded
-            self.response = GopherResponse(data: data)
-            self.status.value = .Parsed
+        do {
+            try request.load() {
+                (data) in
+                self.status.value = .Loaded
+                self.response = GopherResponse(data: data)
+                self.status.value = .Parsed
+            }
+        } catch {
+            self.status.value = .Failed
         }
     }
     

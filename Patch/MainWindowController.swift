@@ -98,7 +98,11 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
         let page = GopherPage(url: url)
         loaded = false
         page.status.signal.observe(on: UIScheduler()).observeValues { _ in
-            if page.status.value == .Parsed && self.loaded == false {
+            if self.loaded == true {
+                return
+            }
+            
+            if page.status.value == .Parsed {
                 self.loaded = true
                 guard page.response != nil else {
                     return
@@ -106,6 +110,11 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
                 let html = page.html
                 let url = URL(string: page.request!.url.path)
                 self.contentWebView.loadHTMLString(html, baseURL: url)
+            }
+            else if page.status.value == .Failed {
+                self.loaded = true
+                let html = page.html
+                self.contentWebView.loadHTMLString(html, baseURL: nil)
             }
         }
         page.load()

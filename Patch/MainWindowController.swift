@@ -152,5 +152,18 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
             }
         }
     }
+    
+    /*
+     Print current page
+     */
+    @available(macOS 11.0, *)
+    @IBAction func printAs(sender: AnyObject?) {
+        let info = NSPrintInfo.shared
+        let operation = contentWebView.printOperation(with: info)
+        operation.view?.frame = contentWebView.bounds
 
+        guard let window = contentWebView.window else { return }
+
+        operation.runModal(for: window, delegate: nil, didRun: nil, contextInfo: nil)
+    }
 }

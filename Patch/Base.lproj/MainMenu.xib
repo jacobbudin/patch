@@ -88,7 +88,7 @@
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
                             <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
                                 <connections>
-                                    <action selector="print:" target="-1" id="qaZ-4w-aoO"/>
+                                    <action selector="printAsSender:" target="-1" id="nhQ-aJ-lBI"/>
                                 </connections>
                             </menuItem>
                         </items>

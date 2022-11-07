@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20DAC8926DEC11E0A9C5F9C1 /* Pods_Patch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974BC531AAC39DB943DA3EE6 /* Pods_Patch.framework */; };
+		A0129795291760D8008314BE /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0129794291760D8008314BE /* PreferencesWindow.xib */; };
+		A012979729176275008314BE /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012979629176275008314BE /* PreferencesWindowController.swift */; };
 		A02176A71E99B68900180ED6 /* GopherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176A61E99B68900180ED6 /* GopherPage.swift */; };
 		A02176A91E99B6AB00180ED6 /* GopherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176A81E99B6AB00180ED6 /* GopherRequest.swift */; };
 		A02176AB1E99B6DA00180ED6 /* GopherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */; };
@@ -49,6 +51,8 @@
 		46528105DF5300D80CF24631 /* Pods-PatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PatchTests/Pods-PatchTests.release.xcconfig"; sourceTree = "<group>"; };
 		6591A9162B512F9C3D688CEA /* Pods-PatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PatchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PatchUITests/Pods-PatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		974BC531AAC39DB943DA3EE6 /* Pods_Patch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Patch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0129794291760D8008314BE /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		A012979629176275008314BE /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		A02176A61E99B68900180ED6 /* GopherPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherPage.swift; sourceTree = "<group>"; };
 		A02176A81E99B6AB00180ED6 /* GopherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherRequest.swift; sourceTree = "<group>"; };
 		A02176AA1E99B6DA00180ED6 /* GopherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopherResponse.swift; sourceTree = "<group>"; };
@@ -165,12 +169,14 @@
 			children = (
 				A093BE711E7A15B400884283 /* AppDelegate.swift */,
 				A0DAE5132439687100DA2CE7 /* MainWindowController.swift */,
+				A012979629176275008314BE /* PreferencesWindowController.swift */,
 				A02176AE1E99B72400180ED6 /* Gopher */,
 				A0ACB5AF1E8DDDB8009FC2D1 /* GopherPageStyle-Light.css */,
 				A08ED1612916D0F700B3C4A8 /* GopherPageStyle-Dark.css */,
 				A093BE731E7A15B400884283 /* Assets.xcassets */,
 				A093BE751E7A15B400884283 /* MainMenu.xib */,
 				A0EFA2B51E7A269A005BED6B /* MainWindow.xib */,
+				A0129794291760D8008314BE /* PreferencesWindow.xib */,
 				A093BE781E7A15B400884283 /* Info.plist */,
 			);
 			path = Patch;
@@ -312,6 +318,7 @@
 				A0ACB5B01E8DDDB8009FC2D1 /* GopherPageStyle-Light.css in Resources */,
 				A08ED1622916D58200B3C4A8 /* GopherPageStyle-Dark.css in Resources */,
 				A093BE771E7A15B400884283 /* MainMenu.xib in Resources */,
+				A0129795291760D8008314BE /* PreferencesWindow.xib in Resources */,
 				A0EFA2B61E7A269A005BED6B /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +427,7 @@
 				A02176A71E99B68900180ED6 /* GopherPage.swift in Sources */,
 				A02176A91E99B6AB00180ED6 /* GopherRequest.swift in Sources */,
 				A0DAE5142439687200DA2CE7 /* MainWindowController.swift in Sources */,
+				A012979729176275008314BE /* PreferencesWindowController.swift in Sources */,
 				A093BE721E7A15B400884283 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

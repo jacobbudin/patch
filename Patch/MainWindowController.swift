@@ -16,11 +16,18 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
     @IBOutlet weak var urlTextField: NSTextField!
     @IBOutlet weak var contentWebView: WKWebView!
     
-    let home = URL(string: "gopher://gopher.floodgap.com")!
     var history: [URL] = []
     var historyI = -1
     var page: GopherPage?
     var loaded = false
+    
+    var homepage: URL? {
+        guard let homepage = NSUserDefaultsController.shared.defaults.string(forKey: "homepage") else {
+            return URL(string: "gopher://gopher.floodgap.com")
+        }
+        
+        return URL(string: homepage)
+    }
     
     override var windowNibName : String! {
         return "MainWindow"
@@ -28,7 +35,7 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
     
     override func windowDidLoad() {
         // Load home page
-        load(home)
+        load(homepage!)
     }
     
     /*
@@ -63,7 +70,7 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
      Listen to home page clicks
      */
     @IBAction func home(sender: AnyObject?) {
-        load(home)
+        load(homepage!)
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {

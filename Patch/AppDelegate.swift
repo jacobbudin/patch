@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NotificationCenter.default.addObserver(self, selector: #selector(onWindowBecomeMain), name: NSWindow.didBecomeMainNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onWindowWillClose), name: NSWindow.willCloseNotification, object: nil)
-        newWindow()
+        newWindow(url: nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -64,8 +64,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func newWindow() {
-        let mainWindowController = MainWindowController()
+    func newWindow(url: URL?) {
+        let mainWindowController: MainWindowController
+        if let url = url {
+            mainWindowController = MainWindowController(url: url)
+        }
+        else {
+            mainWindowController = MainWindowController()
+        }
         mainWindowController.window?.makeKeyAndOrderFront(self)
         mainWindowController.window?.makeFirstResponder(mainWindowController.window)
         mainWindowControllers.insert(mainWindowController)
@@ -73,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func newWindowIfNone() {
         if mainWindowControllers.isEmpty {
-            newWindow()
+            newWindow(url: nil)
         }
     }
     
@@ -86,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func newDocument(sender: AnyObject?) {
-        newWindow()
+        newWindow(url: nil)
     }
     
     @IBAction func openPreferences(sender: AnyObject?) {
@@ -96,5 +102,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openLocation(sender: AnyObject?) {
         newWindowIfNone()
         topMainWindowController?.urlTextField.selectText(nil)
+    }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            newWindow(url: url)
+        }
     }
 }

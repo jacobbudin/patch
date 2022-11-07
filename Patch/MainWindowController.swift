@@ -18,6 +18,7 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
     
     var history: [URL] = []
     var historyI = -1
+    var initialUrl: URL?
     var page: GopherPage?
     var loaded = false
     
@@ -33,9 +34,19 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
         return "MainWindow"
     }
     
+    convenience init(url: URL) {
+        self.init()
+        self.initialUrl = url
+    }
+    
     override func windowDidLoad() {
         // Load home page
-        load(homepage!)
+        if let url = initialUrl {
+            load(url)
+        }
+        else {
+            load(homepage!)
+        }
     }
     
     /*

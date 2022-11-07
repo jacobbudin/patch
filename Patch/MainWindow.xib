@@ -18,16 +18,15 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Patch" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titleVisibility="hidden" id="rls-b0-5OQ">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="710" y="343" width="1200" height="800"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2240" height="1235"/>
             <value key="minSize" type="size" width="480" height="360"/>
             <view key="contentView" wantsLayer="YES" id="K5a-FI-SyS">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <wkWebView wantsLayer="YES" id="Ciw-1O-LLF">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <wkWebViewConfiguration key="configuration">
                             <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -112,7 +111,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="V42-wi-ewt"/>
             </connections>
-            <point key="canvasLocation" x="132" y="131"/>
+            <point key="canvasLocation" x="247.5" y="205"/>
         </window>
     </objects>
     <resources>

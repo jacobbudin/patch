@@ -38,9 +38,9 @@ class GopherRequest {
                 var requestData = Data(base64Encoded: "DQo=", options: NSData.Base64DecodingOptions())
                 
                 if self.url.path.isEmpty == false {
-                    
                     let crlf = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
-                    requestData = String(self.url.path.dropFirst()).appending(crlf).data(using: String.Encoding.ascii)
+                    // TODO: Retain real selector path (i.e., does it include the starting with `/`
+                    requestData = String(self.url.path).appending(crlf).data(using: String.Encoding.ascii)
                 }
                 
                 try socket!.write(from: requestData!)

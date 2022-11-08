@@ -8,6 +8,7 @@
 
 import Foundation
 import ReactiveSwift
+import Swime
 
 class GopherPage {
     var request: GopherRequest?
@@ -29,23 +30,32 @@ class GopherPage {
         }
 
         var contentHtml: String
+        var contentType: String
         
         if (self.status.value == GopherStatus.Failed) {
             print("Showing error...")
             contentHtml = "Could not load \(self.request!.url)"
+            contentType = "error"
+        }
+        else if (self.response?.isBinary)! {
+            print("Showing binary...")
+            contentHtml = parseBinary()
+            contentType = "image"
         }
         else if (self.response?.isDirectory)! {
             print("Showing directory...")
             contentHtml = parseDirectory().map({
                 $0.html
             }).joined()
+            contentType = "directory"
         }
         else {
             print("Showing file...")
-            contentHtml = parseRaw()
+            contentHtml = parsePlain()
+            contentType = "text"
         }
         
-        return "<html><head><style>" + styles + "</style></head><body>" + contentHtml + "</body></html>"
+        return "<html><head><style>" + styles + "</style></head><body class=\"type-" + contentType + "\">" + contentHtml + "</body></html>"
     }
     
     let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
@@ -74,8 +84,25 @@ class GopherPage {
         }
     }
     
-    private func parseRaw() -> String {
-        guard let body = self.response?.body else {
+    private func parseBinary() -> String {
+        guard let data = self.response?.data else {
+            return ""
+        }
+        let mimeType = Swime.mimeType(data: data)
+        let encodedData = data.base64EncodedString()
+        switch mimeType?.type {
+            case .gif?, .jpg?, .png?, .webp?:
+                guard let mime = mimeType?.mime else {
+                    return ""
+                }
+                return "<img src=\"data:" + mime + ";base64," + encodedData + "\">"
+            default:
+                return ""
+        }
+    }
+    
+    private func parsePlain() -> String {
+        guard let body = self.response?.text else {
             return ""
         }
         
@@ -87,7 +114,7 @@ class GopherPage {
     }
     
     private func parseDirectory() -> [GopherResponsePart] {
-        guard let parts = self.response?.body.components(separatedBy: lineSeparator) else {
+        guard let parts = self.response?.text?.components(separatedBy: lineSeparator) else {
             return []
         }
         

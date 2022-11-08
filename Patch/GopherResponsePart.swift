@@ -15,8 +15,11 @@ class GopherResponsePart {
     let url: URL?
     
     var html: String {
-        if type == "0" || type == "1" {
+        if type == "0" || type == "1" { // file or directory
             return "<p><a href=\"\(url!.absoluteString)\">" + content + "</a></p>"
+        }
+        else if type == "g" || type == "I" { // GIF or image
+            return "<p><a href=\"\(url!.absoluteString)\">Image: " + content + "</a></p>"
         }
         
         return "<p>" + content + "</p>"

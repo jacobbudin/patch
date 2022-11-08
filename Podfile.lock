@@ -1,20 +1,24 @@
 PODS:
   - BlueSocket (1.0.52)
   - ReactiveSwift (7.0.0)
+  - Swime (3.0.6)
 
 DEPENDENCIES:
   - BlueSocket (~> 1.0)
   - ReactiveSwift (~> 7.0)
+  - Swime (~> 3.0)
 
 SPEC REPOS:
   trunk:
     - BlueSocket
     - ReactiveSwift
+    - Swime
 
 SPEC CHECKSUMS:
   BlueSocket: 1acd943acb07b55905291d608649fcfbf8cbd57d
   ReactiveSwift: 48c4b9d3b497e8dd20b10300bb1a28ff93550f13
+  Swime: d7b2c277503b6cea317774aedc2dce05613f8b0b
 
-PODFILE CHECKSUM: e96beb2bc2b2e664d7e5156df65996a21a326d36
+PODFILE CHECKSUM: ab1ebfbac945a0cdfbfd9e467b46d13708eb018e
 
 COCOAPODS: 1.11.3

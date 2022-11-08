@@ -10,16 +10,24 @@ import Foundation
 
 class GopherResponse {
     
-    let body: String
+    let text: String?
+    let data: Data?
     var error: GopherResponseError?
     let lineSeparator = String(bytes: [13, 10], encoding: String.Encoding.ascii)!
     
+    var isText: Bool { text != nil }
+    var isBinary: Bool { data != nil }
+    
     var isDirectory: Bool {
-        if self.body.contains("\n\n") {
+        guard let text = text else {
             return false
         }
         
-        let parts = self.body.components(separatedBy: lineSeparator)
+        if text.contains("\n\n") {
+            return false
+        }
+        
+        let parts = text.components(separatedBy: lineSeparator)
         
         for part in parts.dropLast() {
             // if there's an empty line, this cannot be a directory listing
@@ -31,13 +39,15 @@ class GopherResponse {
         return true
     }
     
-    init?(data: Data) {
-        guard let body = String(data: data, encoding: .utf8) else {
-            self.error = .Encoding
-            return nil
+    init(data: Data) {
+        guard let text = String(data: data, encoding: .utf8) else {
+            self.data = data
+            self.text = nil
+            return
         }
         
-        self.body = body
+        self.text = text
+        self.data = nil
     }
     
 }

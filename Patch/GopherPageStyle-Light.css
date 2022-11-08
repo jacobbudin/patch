@@ -1,7 +1,14 @@
 body {
     font-family: monospace;
     margin: 0 auto;
-    padding: 1em;
-    max-width: 40em;
     white-space: pre;
+}
+
+body .type-text, .type-directory {
+    padding: 1em;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
 }

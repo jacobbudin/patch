@@ -9,6 +9,7 @@ target 'Patch' do
 
   pod 'BlueSocket', '~> 1.0'
   pod 'ReactiveSwift', '~> 7.0'
+  pod 'Swime', '~> 3.0'
 
   # Pods for Patch
 

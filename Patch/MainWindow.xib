@@ -49,6 +49,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <binding destination="-2" name="enabled" keyPath="backEnabled" id="NQB-CU-Gy2"/>
+                            </connections>
                         </button>
                         <connections>
                             <action selector="backWithSender:" target="-2" id="4Ne-9w-mUD"/>
@@ -63,6 +66,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <binding destination="-2" name="enabled" keyPath="forwardEnabled" id="qQY-pE-LTn"/>
+                            </connections>
                         </button>
                         <connections>
                             <action selector="forwardWithSender:" target="-2" id="mTJ-k8-MtM"/>
@@ -113,6 +119,7 @@
             </connections>
             <point key="canvasLocation" x="247.5" y="205"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="JFh-oc-WDu"/>
     </objects>
     <resources>
         <image name="NSGoLeftTemplate" width="10" height="14"/>

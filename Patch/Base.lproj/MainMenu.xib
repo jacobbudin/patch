@@ -324,11 +324,13 @@
                             <menuItem title="Back" keyEquivalent="[" id="vFl-Xe-Klw">
                                 <connections>
                                     <action selector="backWithSender:" target="-1" id="43m-mx-rJ1"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="backEnabled" id="qks-LI-aGq"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Forward" keyEquivalent="]" id="RZv-TT-x9m">
                                 <connections>
                                     <action selector="forwardWithSender:" target="-1" id="C4h-ur-QQm"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="forwardEnabled" id="ZAt-zJ-57R"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Home" keyEquivalent="H" id="uQf-3j-IPk">
@@ -411,5 +413,6 @@
             </items>
             <point key="canvasLocation" x="-55" y="154"/>
         </menu>
+        <userDefaultsController representsSharedInstance="YES" id="5Z3-fQ-1ZW"/>
     </objects>
 </document>

@@ -22,6 +22,9 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
     var page: GopherPage?
     var loaded = false
     
+    @objc dynamic var backEnabled = false
+    @objc dynamic var forwardEnabled = false
+    
     var homepage: URL? {
         guard let homepage = NSUserDefaultsController.shared.defaults.string(forKey: "homepage") else {
             return URL(string: "gopher://gopher.floodgap.com")
@@ -152,6 +155,8 @@ class MainWindowController: NSWindowController, WKNavigationDelegate {
         }
 
         self.page = page
+        self.backEnabled = self.historyI > 0
+        self.forwardEnabled = self.history.count != self.historyI + 1
     }
 
     /*

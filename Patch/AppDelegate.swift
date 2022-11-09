@@ -20,6 +20,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var topMainWindowController: MainWindowController?
     var mainWindowControllers: Set<MainWindowController> = []
     var preferencesWindowController: PreferencesWindowController?
+    
+    @objc dynamic var backEnabled: Bool {
+        guard let mainWindowController = topMainWindowController else {
+            return false
+        }
+        return mainWindowController.backEnabled
+    }
+    
+    @objc dynamic var forwardEnabled: Bool {
+        guard let mainWindowController = topMainWindowController else {
+            return false
+        }
+        return mainWindowController.forwardEnabled
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NotificationCenter.default.addObserver(self, selector: #selector(onWindowBecomeMain), name: NSWindow.didBecomeMainNotification, object: nil)
